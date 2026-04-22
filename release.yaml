@@ -12,8 +12,8 @@ spec:
       chart: ./charts/nkp-demo-helm
       sourceRef:
         kind: GitRepository
-        name: cicd-dmeo-helm # Use the exact name you gave it in NKP
-        namespace: cicd-demo # Or wherever the GitRepository object lives
+        name: cicd-demo-helm # Use the exact name you gave it in NKP
+        namespace: cicd-demo-helm # Or wherever the GitRepository object lives
   install:
     remediation:
       retries: 3
