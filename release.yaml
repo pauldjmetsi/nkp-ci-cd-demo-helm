@@ -1,0 +1,27 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: cicd-demo-release
+  # IMPORTANT: This must be the namespace where you want the app to live
+  namespace: cicd-demo 
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # This points to the GitOps Source you already created in the NKP UI
+      chart: ./ 
+      sourceRef:
+        kind: GitRepository
+        name: cicd-dmeo-helm # Use the exact name you gave it in NKP
+        namespace: cicd-demo # Or wherever the GitRepository object lives
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  # This is where you can override your values.yaml for the workshop
+  values:
+    replicaCount: 1
+    ingress:
+      host: "cicd-demo.10.2.0.72.nip.io"
