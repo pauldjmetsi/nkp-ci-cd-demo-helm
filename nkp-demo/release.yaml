@@ -3,7 +3,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
   name: cicd-demo-helm
-  namespace: flux-system
+  namespace: cicd-demo-helm
 spec:
   interval: 5m0s
   url: https://github.com/pauldjmetsi/nkp-ci-cd-demo-helm
@@ -25,7 +25,7 @@ spec:
       sourceRef:
         kind: GitRepository
         name: cicd-demo-helm # Use the exact name you gave it in NKP
-        namespace: flux-system # Or wherever the GitRepository object lives
+        namespace: cicd-demo-helm # Or wherever the GitRepository object lives
   install:
     remediation:
       retries: 3
