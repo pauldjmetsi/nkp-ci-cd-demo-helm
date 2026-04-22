@@ -1,3 +1,15 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: cicd-demo-helm
+  namespace: cicd-demo-helm
+spec:
+  interval: 5m0s
+  url: https://github.com/pauldjmetsi/nkp-ci-cd-demo-helm
+  ref:
+    branch: main 
+---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -9,7 +21,7 @@ spec:
   chart:
     spec:
       # This points to the GitOps Source you already created in the NKP UI
-      chart: ./charts/nkp-demo-helm/
+      chart: cicd-demo-helm
       sourceRef:
         kind: GitRepository
         name: cicd-demo-helm # Use the exact name you gave it in NKP
