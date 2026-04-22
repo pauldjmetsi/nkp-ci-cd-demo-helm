@@ -3,7 +3,7 @@ kind: HelmRelease
 metadata:
   name: cicd-demo-release
   # IMPORTANT: This must be the namespace where you want the app to live
-  namespace: cicd-demo 
+  namespace: cicd-demo-helm
 spec:
   interval: 5m
   chart:
