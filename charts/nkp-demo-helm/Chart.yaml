@@ -1,5 +1,5 @@
 apiVersion: v2
-name: cicd-demo-helm-chart
+name: cicd-demo-helm
 description: A Helm chart for Kubernetes
 type: application
 version: 0.1.0

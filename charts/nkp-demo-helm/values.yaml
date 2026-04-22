@@ -22,7 +22,7 @@ service:
 
 ingress:
   enabled: true
-  className: "traefik"
-  issuer: "cicd-demo-helm-ca-issuer"
+  className: "kommander-traefik"
+  issuer: "selfsigned-issuer"
   host: "cicd-demo-helm.10.2.0.72.nip.io"
   tlsSecret: "cicd-demo-tls"
