@@ -21,7 +21,7 @@ spec:
   chart:
     spec:
       # This points to the GitOps Source you already created in the NKP UI
-      chart: charts/cicd-demo-helm
+      chart: ./charts/cicd-demo-helm
       sourceRef:
         kind: GitRepository
         name: cicd-demo-helm # Use the exact name you gave it in NKP
