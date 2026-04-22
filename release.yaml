@@ -24,4 +24,4 @@ spec:
   values:
     replicaCount: 1
     ingress:
-      host: "cicd-demo.10.2.0.72.nip.io"
+      host: "ccicd-demo-helm.10.2.0.72.nip.io"
