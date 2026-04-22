@@ -1,0 +1,28 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/pauldjmetsi/nkp-ci-cd-demo
+  tag: v202603021059
+
+env:
+  appVersion: "v1.9"
+  buildVersion: "v202603021059"
+
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "200m"
+  limits:
+    memory: "256Mi"
+    cpu: "200m"
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: "traefik"
+  issuer: "cicd-demo-helm-ca-issuer"
+  host: "cicd-demo-helm.10.2.0.72.nip.io"
+  tlsSecret: "cicd-demo-tls"
