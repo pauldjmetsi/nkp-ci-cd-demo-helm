@@ -2,8 +2,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
-  name: cicd-demo-helm
-  namespace: cicd-demo-helm
+  name: demo-app-helm
+  namespace: demo-app-helm
 spec:
   interval: 5m0s
   url: https://github.com/pauldjmetsi/nkp-ci-cd-demo-helm
@@ -15,7 +15,7 @@ kind: HelmRelease
 metadata:
   name: cicd-demo-release
   # IMPORTANT: This must be the namespace where you want the app to live
-  namespace: cicd-demo-helm
+  namespace: demo-app-helm
 spec:
   interval: 5m
   chart:
@@ -25,8 +25,8 @@ spec:
       version: "0.1.0"
       sourceRef:
         kind: GitRepository
-        name: cicd-demo-helm # Use the exact name you gave it in NKP
-        namespace: cicd-demo-helm # Or wherever the GitRepository object lives
+        name: demo-app-helm # Use the exact name you gave it in NKP
+        namespace: demo-app-helm # Or wherever the GitRepository object lives
   install:
     remediation:
       retries: 3
@@ -37,4 +37,4 @@ spec:
   values:
     replicaCount: 1
     ingress:
-      host: "cicd-demo-helm.10.2.0.72.nip.io"
+      host: "demo-app-helm.10.2.0.151.nip.io"
